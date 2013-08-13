@@ -10,10 +10,10 @@ To install the desktop notifier, simply drop it inside the `lib/ext` directory o
 
 ### Gnome 
 
-[[wiki/images/maven-desktop-notifier-gnome.png]]
-[[wiki/images/maven-desktop-notifier-gnome-error.png]]
+![](wiki/images/maven-desktop-notifier-gnome.png)
+![](wiki/images/maven-desktop-notifier-gnome-error.png)
 
 ### KDE
 
-[[wiki/images/maven-desktop-notifier-kde.png]]
-[[wiki/images/maven-desktop-notifier-kde-error.png]]
+![](wiki/images/maven-desktop-notifier-kde.png)
+![](wiki/images/maven-desktop-notifier-kde-error.png)
