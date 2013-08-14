@@ -62,7 +62,7 @@ public class NotifySendEventSpy extends AbstractEventSpy {
     private void notifySend(String title, String details, String icon) throws IOException {
 
         ProcessBuilder builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon,
-                "--app-name=Maven");
+                "--app-name=Maven", "--hint=int:transient:1");
         Process process = builder.start();
         try {
             process.waitFor();
