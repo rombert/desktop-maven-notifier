@@ -61,14 +61,47 @@ public class NotifySendEventSpy extends AbstractEventSpy {
 
     private void notifySend(String title, String details, String icon) throws IOException {
 
-        ProcessBuilder builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon,
-                "--app-name=Maven", "--hint=int:transient:1");
-        Process process = builder.start();
-        try {
-            process.waitFor();
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // restore interrupted status
-            return;
+        ProcessBuilder builder = null;
+        OSName os = OSName.getConstantForValue(System.getProperty("os.name"));
+        if (os != null) {
+            switch (os) {
+                case LINUX:
+                    builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon, "--app-name=Maven",
+                            "--hint=int:transient:1");
+                    break;
+                case MAC:
+                    builder = new ProcessBuilder("terminal-notifier", "-title", title, "-message", details);
+            }
+
+            Process process = builder.start();
+            try {
+                process.waitFor();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt(); // restore interrupted status
+                return;
+            }
         }
+    }
+
+    private enum OSName {
+
+        LINUX("Linux"),
+        MAC("Mac OS X");
+
+        private String osName;
+
+        private OSName(String osName) {
+            this.osName = osName;
+        }
+
+        public static OSName getConstantForValue(String value) {
+            for (OSName constant : OSName.values()) {
+                if (constant.osName.equals(value)) {
+                    return constant;
+                }
+            }
+            return null;
+        }
+
     }
 }
