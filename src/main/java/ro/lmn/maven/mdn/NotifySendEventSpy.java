@@ -66,7 +66,7 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         if (os != null) {
             switch (os) {
                 case LINUX:
-                    builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon, "--app-name=Maven",
+                    builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon,
                             "--hint=int:transient:1");
                     break;
                 case MAC:
