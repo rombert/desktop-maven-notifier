@@ -16,7 +16,6 @@
 package ro.lmn.maven.mdn;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.apache.maven.eventspy.AbstractEventSpy;
 import org.apache.maven.eventspy.EventSpy;
@@ -65,9 +64,8 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         OSName os = OSName.getConstantForValue(System.getProperty("os.name"));
         if (os != null) {
             switch (os) {
-                case LINUX:
-                    builder = new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon,
-                            "--hint=int:transient:1");
+                case LINUX: 
+                    builder = prepareLinuxNotifier(title, details, icon);
                     break;
                 case MAC:
                     builder = new ProcessBuilder("terminal-notifier", "-title", title, "-message", details);
@@ -81,6 +79,13 @@ public class NotifySendEventSpy extends AbstractEventSpy {
                 return;
             }
         }
+    }
+    
+    private ProcessBuilder prepareLinuxNotifier(String title, String details, String icon) {
+        if(Boolean.parseBoolean(System.getenv("KDE_FULL_SESSION"))) {
+            return new ProcessBuilder("/usr/bin/kdialog", "--passivepopup",  details , "--title",  title, "--icon", icon, "2");
+        }
+        return new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon, "--hint=int:transient:1");
     }
 
     private enum OSName {
