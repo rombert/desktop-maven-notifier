@@ -65,7 +65,7 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         if (os != null) {
             switch (os) {
                 case LINUX: 
-                    builder = prepareLinuxNotifier(title, details, icon);
+                    builder = prepareLinuxNotifier(title, details, icon, 2);
                     break;
                 case MAC:
                     builder = new ProcessBuilder("terminal-notifier", "-title", title, "-message", details);
@@ -81,9 +81,17 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         }
     }
     
-    private ProcessBuilder prepareLinuxNotifier(String title, String details, String icon) {
+    /**
+     * Create a notification for GNU/Linux
+     * @param title the title of the notification.
+     * @param details the message of the notification.
+     * @param icon the icon to be displayed.
+     * @param timeout the duration after which the notification will be dismissed without the user intervention. 
+     * @return the processbuilder for GNU/Linux
+     */
+    private ProcessBuilder prepareLinuxNotifier(String title, String details, String icon, int timeout) {
         if(Boolean.parseBoolean(System.getenv("KDE_FULL_SESSION"))) {
-            return new ProcessBuilder("/usr/bin/kdialog", "--passivepopup",  details , "--title",  title, "--icon", icon, "2");
+            return new ProcessBuilder("/usr/bin/kdialog", "--passivepopup",  details , "--title",  title, "--icon", icon, "" + timeout);
         }
         return new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon, "--hint=int:transient:1");
     }
