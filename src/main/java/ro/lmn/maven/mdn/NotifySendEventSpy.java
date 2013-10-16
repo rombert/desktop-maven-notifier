@@ -16,6 +16,7 @@
 package ro.lmn.maven.mdn;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.maven.eventspy.AbstractEventSpy;
 import org.apache.maven.eventspy.EventSpy;
