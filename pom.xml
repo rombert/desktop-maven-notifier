@@ -66,6 +66,9 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <name>Maven Desktop Notifier</name>
     <description>Uses desktop notifications to notify the user when a build succeeds. Currently only supports Linux using notify-send.</description>
 </project>
