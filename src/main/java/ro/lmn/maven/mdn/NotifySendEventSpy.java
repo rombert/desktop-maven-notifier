@@ -15,7 +15,6 @@
  */
 package ro.lmn.maven.mdn;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.maven.eventspy.AbstractEventSpy;
@@ -26,14 +25,6 @@ import org.codehaus.plexus.component.annotations.Component;
 
 @Component(role = EventSpy.class)
 public class NotifySendEventSpy extends AbstractEventSpy {
-
-    private static final String ICON_INFO = "dialog-information";
-    private static final String ICON_ERROR = "dialog-error";
-
-    public static void main(String[] args) throws IOException {
-
-        new NotifySendEventSpy().notifySend("Test message", "This is an error!", ICON_ERROR);
-    }
 
     @Override
     public void onEvent(Object event) throws Exception {
@@ -51,71 +42,15 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         String projectName = ee.getSession().getTopLevelProject().getName();
         List<Throwable> exceptions = ee.getSession().getResult().getExceptions();
 
+        Notifier notifier = new Notifier();
+
         if (exceptions == null || exceptions.isEmpty()) {
-            notifySend("Build successful", "Built " + projectName, ICON_INFO);
+            notifier.notifySend("Build successful", "Built " + projectName, Notifier.ICON_INFO);
         } else {
             String errorMessage = exceptions.get(0).getMessage();
-            notifySend("Build failed", projectName + " failed : " + errorMessage, ICON_ERROR);
+            notifier.notifySend("Build failed", projectName + " failed : " + errorMessage, Notifier.ICON_INFO);
         }
     }
 
-    private void notifySend(String title, String details, String icon) throws IOException {
-
-        ProcessBuilder builder = null;
-        OSName os = OSName.getConstantForValue(System.getProperty("os.name"));
-        if (os != null) {
-            switch (os) {
-                case LINUX: 
-                    builder = prepareLinuxNotifier(title, details, icon, 2);
-                    break;
-                case MAC:
-                    builder = new ProcessBuilder("terminal-notifier", "-title", title, "-message", details);
-            }
-
-            Process process = builder.start();
-            try {
-                process.waitFor();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt(); // restore interrupted status
-                return;
-            }
-        }
-    }
     
-    /**
-     * Create a notification for GNU/Linux
-     * @param title the title of the notification.
-     * @param details the message of the notification.
-     * @param icon the icon to be displayed.
-     * @param timeout the duration after which the notification will be dismissed without the user intervention. 
-     * @return the processbuilder for GNU/Linux
-     */
-    private ProcessBuilder prepareLinuxNotifier(String title, String details, String icon, int timeout) {
-        if(Boolean.parseBoolean(System.getenv("KDE_FULL_SESSION"))) {
-            return new ProcessBuilder("/usr/bin/kdialog", "--passivepopup",  details , "--title",  title, "--icon", icon, "" + timeout);
-        }
-        return new ProcessBuilder("/usr/bin/notify-send", title, details, "--icon=" + icon, "--hint=int:transient:1");
-    }
-
-    private enum OSName {
-
-        LINUX("Linux"),
-        MAC("Mac OS X");
-
-        private String osName;
-
-        private OSName(String osName) {
-            this.osName = osName;
-        }
-
-        public static OSName getConstantForValue(String value) {
-            for (OSName constant : OSName.values()) {
-                if (constant.osName.equals(value)) {
-                    return constant;
-                }
-            }
-            return null;
-        }
-
-    }
 }
