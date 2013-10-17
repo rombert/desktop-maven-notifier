@@ -23,6 +23,9 @@ import org.apache.maven.execution.ExecutionEvent;
 import org.apache.maven.execution.ExecutionEvent.Type;
 import org.codehaus.plexus.component.annotations.Component;
 
+import ro.lmn.maven.mdn.api.NotificationType;
+import ro.lmn.maven.mdn.api.Notifier;
+
 @Component(role = EventSpy.class)
 public class NotifySendEventSpy extends AbstractEventSpy {
 
@@ -42,13 +45,15 @@ public class NotifySendEventSpy extends AbstractEventSpy {
         String projectName = ee.getSession().getTopLevelProject().getName();
         List<Throwable> exceptions = ee.getSession().getResult().getExceptions();
 
-        Notifier notifier = new Notifier();
-
-        if (exceptions == null || exceptions.isEmpty()) {
-            notifier.notifySend("Build successful", "Built " + projectName, Notifier.ICON_INFO);
-        } else {
-            String errorMessage = exceptions.get(0).getMessage();
-            notifier.notifySend("Build failed", projectName + " failed : " + errorMessage, Notifier.ICON_INFO);
+        NotifierFactory notifierFactory = new NotifierFactory();
+        Notifier notifier = notifierFactory.getNotifier();
+        if (notifier != null) {
+            if (exceptions == null || exceptions.isEmpty()) {
+                notifier.notify("Build successful", "Built " + projectName, NotificationType.SUCCESS);
+            } else {
+                String errorMessage = exceptions.get(0).getMessage();
+                notifier.notify("Build failed", projectName + " failed : " + errorMessage, NotificationType.FAIL);
+            }
         }
     }
 

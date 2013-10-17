@@ -42,3 +42,7 @@ On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Ins
 ![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx.png)
 ![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx-failure.png)
 ![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx-notification-centre.png)
+
+### Windows
+![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-windows.png)
+![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-windows-failure.png)
