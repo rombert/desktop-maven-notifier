@@ -15,6 +15,8 @@
  */
 package ro.lmn.maven.mdn.impl;
 
+import static ro.lmn.maven.mdn.api.NotificationType.FAIL;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -41,12 +43,7 @@ public class LinuxNotifier extends AbstractNotifier {
 
     @Override
     public void notify(String title, String details, NotificationType notificationType) throws IOException {
-        String icon = ICON_INFO;
-        switch (notificationType) {
-            case FAIL:
-                icon = ICON_ERROR;
-                break;
-        }
+        String icon = (notificationType == FAIL) ? ICON_ERROR : ICON_INFO;
         ProcessBuilder builder = prepareLinuxNotifier(title, details, icon, 2);
         executeProcess(builder);
     }
