@@ -15,20 +15,20 @@
  */
 package ro.lmn.maven.mdn;
 
-import java.io.IOException;
+import ro.lmn.maven.mdn.api.NotificationType;
+import ro.lmn.maven.mdn.api.Notifier;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-
-        Notifier notifier = new Notifier();
-
-        if (args.length > 0 && "failure".equals(args[0])) {
-            notifier.notifySend("Build failed", "Something went wrong...", Notifier.ICON_ERROR);
-        } else {
-            notifier.notifySend("Build successful", "All is right", Notifier.ICON_INFO);
+    public static void main(String[] args) throws Exception {
+        NotifierFactory notifierFactory = new NotifierFactory();
+        Notifier notifier = notifierFactory.getNotifier();
+        if (notifier != null) {
+            if (args.length > 0 && "failure".equals(args[0])) {
+                notifier.notify("Build failed", "Something went wrong...", NotificationType.FAIL);
+            } else {
+                notifier.notify("Build successful", "All is right", NotificationType.SUCCESS);
+            }
         }
-
     }
-
 }
