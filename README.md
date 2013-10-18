@@ -28,24 +28,24 @@ There is preliminary support for Windows 7 and 8 using [Snarl](http://sourceforg
 
 ### Gnome
 
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-gnome.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-gnome-failure.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-gnome.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-gnome-failure.png)
 
 ### KDE
 
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-kde.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-kde-failure.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-kde.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-kde-failure.png)
 
 ### Unity
 
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-unity.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-unity-failure.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-unity.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-unity-failure.png)
 
 ### Mac OS X
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx-failure.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-macosx-notification-centre.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-macosx.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-macosx-failure.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-macosx-notification-centre.png)
 
 ### Windows
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-windows.png)
-![](https://raw.github.com/wiki/rombert/maven-desktop-notifier/images/maven-desktop-notifier-windows-failure.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-windows.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-windows-failure.png)
