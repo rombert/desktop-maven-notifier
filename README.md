@@ -1,5 +1,5 @@
 
-# Maven Desktop Notifier
+# Desktop Notifier for Maven
 
 Simple build extension for Maven 3.0.2 or newer which notifies the user when a build is complete.
 
@@ -11,15 +11,18 @@ To build the desktop notifier, download a copy of the sources, and then from wit
 
     mvn package
 
-To install the desktop notifier, simply copy `target/maven-desktop-notifier-*.jar` to the `lib/ext` directory of your Maven installation.
+To install the desktop notifier, simply copy `target/desktop-maven-notifier-*.jar` to the `lib/ext` directory of your Maven installation.
 
 ### Linux ###
-On Linux Maven Desktop Notifier uses `notify-send`. Tests were performed on  Gnome 3, KDE 4, Unity but other
-compliant implementations, for instance those provided by Cinnamon and Xfce should work just fine.
+On Linux Maven Desktop Notifier uses `notify-send` and, where available, `kdialog`. Tests were performed on  Gnome 3, KDE 4, Unity 
+but other compliant implementations, for instance those provided by Cinnamon and Xfce should work just fine.
 
 ### Mac OS X ###
 On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Installation instructions for `terminal-notifier` can be found
 [here](https://github.com/alloy/terminal-notifier/).
+
+### Windows ###
+There is preliminary support for Windows 7 and 8 using [Snarl](http://sourceforge.net/projects/snarlwin/).
 
 ## Screenshots
 
