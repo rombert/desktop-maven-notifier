@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn;
+package ro.lmn.maven.dmn;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ro.lmn.maven.mdn.api.Notifier;
-import ro.lmn.maven.mdn.impl.LinuxNotifier;
-import ro.lmn.maven.mdn.impl.MacOSXNotifier;
-import ro.lmn.maven.mdn.impl.WindowsNotifier;
+import ro.lmn.maven.dmn.api.Notifier;
+import ro.lmn.maven.dmn.impl.LinuxNotifier;
+import ro.lmn.maven.dmn.impl.MacOSXNotifier;
+import ro.lmn.maven.dmn.impl.WindowsNotifier;
 
 public class NotifierFactory {
 

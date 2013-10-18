@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn.impl;
+package ro.lmn.maven.dmn.impl;
 
-import static ro.lmn.maven.mdn.api.NotificationType.FAIL;
+import static ro.lmn.maven.dmn.api.NotificationType.FAIL;
 
 import java.io.File;
 import java.io.IOException;
 
-import ro.lmn.maven.mdn.api.NotificationType;
+import ro.lmn.maven.dmn.api.NotificationType;
 
 /**
  * Linux notifier built on top of {@code /usr/bin/kdialog} and {@code /usr/bin/notify-send}.

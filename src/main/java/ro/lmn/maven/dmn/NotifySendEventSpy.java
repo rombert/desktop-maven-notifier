@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn;
+package ro.lmn.maven.dmn;
 
 import java.util.List;
 
@@ -23,8 +23,8 @@ import org.apache.maven.execution.ExecutionEvent;
 import org.apache.maven.execution.ExecutionEvent.Type;
 import org.codehaus.plexus.component.annotations.Component;
 
-import ro.lmn.maven.mdn.api.NotificationType;
-import ro.lmn.maven.mdn.api.Notifier;
+import ro.lmn.maven.dmn.api.NotificationType;
+import ro.lmn.maven.dmn.api.Notifier;
 
 @Component(role = EventSpy.class)
 public class NotifySendEventSpy extends AbstractEventSpy {

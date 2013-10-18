@@ -17,7 +17,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ro.lmn.maven</groupId>
-    <artifactId>maven-desktop-notifier</artifactId>
+    <artifactId>desktop-maven-notifier</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
@@ -47,7 +47,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ro.lmn.maven.mdn.Main</mainClass>
+                            <mainClass>ro.lmn.maven.dmn.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -85,6 +85,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <name>Maven Desktop Notifier</name>
-    <description>Uses desktop notifications to notify the user when a build succeeds. Currently only supports Linux using notify-send.</description>
+    <name>Desktop Notifier for Maven</name>
+    <description>Uses desktop notifications to notify the user when a build succeeds.</description>
 </project>

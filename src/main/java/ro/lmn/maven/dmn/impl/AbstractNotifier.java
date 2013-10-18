@@ -13,30 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn.impl;
+package ro.lmn.maven.dmn.impl;
+
+import java.io.IOException;
+
+import ro.lmn.maven.dmn.api.Notifier;
 
 /**
- * Determines the OS type running on this platform.
+ * Base abstract class for {@link Notifier}s.
  */
-public enum OSType {
+public abstract class AbstractNotifier implements Notifier {
 
-    LINUX("Linux"),
-    MAC("Mac OS X"),
-    WINDOWS_7("Windows 7"),
-    WINDOWS_8("Windows 8");
-
-    private String os;
-
-    private OSType(String os) {
-        this.os = os;
+    protected static String getOSName() {
+        return System.getProperty("os.name");
     }
 
-    public static OSType getConstantForValue(String value) {
-        for (OSType constant : OSType.values()) {
-            if (constant.os.equals(value)) {
-                return constant;
-            }
+    protected void executeProcess(ProcessBuilder processBuilder) throws IOException {
+        Process process = processBuilder.start();
+        try {
+            process.waitFor();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return;
         }
-        return null;
     }
 }

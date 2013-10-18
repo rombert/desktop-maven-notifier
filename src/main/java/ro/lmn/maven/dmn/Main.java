@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn;
+package ro.lmn.maven.dmn;
 
-import ro.lmn.maven.mdn.api.NotificationType;
-import ro.lmn.maven.mdn.api.Notifier;
+import ro.lmn.maven.dmn.api.NotificationType;
+import ro.lmn.maven.dmn.api.Notifier;
 
 public class Main {
 

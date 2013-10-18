@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn.api;
+package ro.lmn.maven.dmn.api;
 
 /**
  * Defines the available notification types.

@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ro.lmn.maven.mdn.impl;
+package ro.lmn.maven.dmn.impl;
 
 import java.io.File;
 import java.io.IOException;
 
-import ro.lmn.maven.mdn.api.NotificationType;
+import ro.lmn.maven.dmn.api.NotificationType;
 
 /**
  * NotifierFactory for Microsoft Windows based on <a href="http://snarl.fullphat.net/">Snarl</a>.
