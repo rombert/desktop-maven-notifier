@@ -16,6 +16,8 @@
 package ro.lmn.maven.dmn;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import ro.lmn.maven.dmn.api.Notifier;
@@ -32,19 +34,21 @@ public class NotifierFactory {
         notifiers.add(new MacOSXNotifier());
         notifiers.add(new WindowsNotifier());
         notifiers.add(new SystemTrayNotifier());
+        
+        Collections.sort(notifiers, new Comparator<Notifier>() {
+            @Override
+            public int compare(Notifier o1, Notifier o2) {
+                return Integer.valueOf(o2.getPriority()).compareTo(o1.getPriority());
+            }
+        });
     }
-
+    
     public Notifier getNotifier() {
-        Notifier notifier = null;
         for (Notifier n : notifiers) {
             if (n.isAvailable()) {
-                if (notifier == null) {
-                    notifier = n;
-                } else if (n.getPriority() > notifier.getPriority()) {
-                    notifier = n;
-                }
+                return n;
             }
         }
-        return notifier;
+        return null;
     }
 }
