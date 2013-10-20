@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Radu Cotescu
+ * Copyright 2013 Radu Cotescu, Robert Munteanu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,12 @@ import ro.lmn.maven.dmn.impl.WindowsNotifier;
 
 public class NotifierFactory {
 
-    private List<Notifier> notifiers = new ArrayList<Notifier>() {{
-        add(new LinuxNotifier());
-        add(new MacOSXNotifier());
-        add(new WindowsNotifier());
-    }};
+    private final List<Notifier> notifiers = new ArrayList<Notifier>();
+    {
+        notifiers.add(new LinuxNotifier());
+        notifiers.add(new MacOSXNotifier());
+        notifiers.add(new WindowsNotifier());
+    }
 
     public Notifier getNotifier() {
         Notifier notifier = null;
