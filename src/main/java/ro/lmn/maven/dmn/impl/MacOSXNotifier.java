@@ -40,9 +40,4 @@ public class MacOSXNotifier extends AbstractNotifier {
         }
         return terminalNotifier.exists() && terminalNotifier.canExecute();
     }
-
-    @Override
-    public int getPriority() {
-        return 100;
-    }
 }

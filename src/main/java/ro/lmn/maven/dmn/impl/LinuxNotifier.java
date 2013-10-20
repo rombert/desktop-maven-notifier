@@ -56,11 +56,6 @@ public class LinuxNotifier extends AbstractNotifier {
         return notifier.exists() && notifier.canExecute();
     }
 
-    @Override
-    public int getPriority() {
-        return 100;
-    }
-
     /**
      * Create a notification for GNU/Linux
      *
