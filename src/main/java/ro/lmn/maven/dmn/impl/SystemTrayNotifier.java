@@ -28,10 +28,13 @@ import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
 import ro.lmn.maven.dmn.api.NotificationType;
 
 public class SystemTrayNotifier extends AbstractNotifier {
+
+    private SystemTray tray;
     
     public static void main(String[] args) throws IOException {
         
@@ -44,7 +47,7 @@ public class SystemTrayNotifier extends AbstractNotifier {
 
         final SystemTray tray = SystemTray.getSystemTray();
         final CountDownLatch latch = new CountDownLatch(1);
-        final TrayIcon icon = new TrayIcon(getImage(notificationType));
+        final TrayIcon icon = getTrayIcon(notificationType);
         
         EventQueue.invokeLater(new Runnable() {
             @Override
@@ -76,8 +79,8 @@ public class SystemTrayNotifier extends AbstractNotifier {
         return SystemTray.isSupported();
     }
 
-    private Image getImage(NotificationType notificationType) throws IOException {
-        Image image = null;
+    private TrayIcon getTrayIcon(NotificationType notificationType) throws IOException {
+        Dimension size = tray().getTrayIconSize();
         String imageName = null;
         switch (notificationType) {
             case SUCCESS:
@@ -87,11 +90,8 @@ public class SystemTrayNotifier extends AbstractNotifier {
                 imageName = "/icons/error.png";
                 break;
         }
-        InputStream is = getClass().getResourceAsStream(imageName);
-        if (is != null) {
-            image = ImageIO.read(is);
-        }
-        return image;
+        BufferedImage icon = ImageIO.read(getClass().getResourceAsStream(imageName));
+        return new TrayIcon(icon.getScaledInstance(size.width, size.height, Image.SCALE_SMOOTH));
     }
 
     private TrayIcon.MessageType getMessageType(NotificationType notificationType) {
@@ -103,5 +103,12 @@ public class SystemTrayNotifier extends AbstractNotifier {
             default:
                 return TrayIcon.MessageType.NONE;
         }
+    }
+
+    private SystemTray tray() {
+        if (tray == null) {
+            tray = SystemTray.getSystemTray();
+        }
+        return tray;
     }
 }

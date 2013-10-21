@@ -3,7 +3,7 @@
 
 Simple build extension for Maven 3.0.2 or newer which notifies the user when a build is complete.
 
-Currently supported on Linux, Mac OS X and Windows.
+Currently supported on Linux, Mac OS X and Windows (through various notification senders) and on all systems running Java 6.
 
 ## How To ##
 
@@ -25,8 +25,8 @@ On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Ins
 There is preliminary support for Windows 7 and 8 using [Snarl](http://sourceforge.net/projects/snarlwin/).
 
 ### Java System Tray ###
-If you're on an unsupported OS, or if the previously mentioned prerequisites are not installed, Maven Desktop Notifier will fallback to
-using the Java System Tray mechanism for displaying pop-ups. This requires Java 6 or newer.
+If none of the notification senders described above are available on your machine, or if simply you're running a different operating system,
+Maven Desktop Notifier will fallback to using the Java System Tray mechanism for displaying pop-ups. This requires Java 6 or newer.
 
 ## Screenshots
 
