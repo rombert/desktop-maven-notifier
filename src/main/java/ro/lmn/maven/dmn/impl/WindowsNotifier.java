@@ -54,9 +54,4 @@ public class WindowsNotifier extends AbstractNotifier {
         }
         return heysnarl.exists() && heysnarl.canExecute();
     }
-
-    @Override
-    public int getPriority() {
-        return 100;
-    }
 }

@@ -37,4 +37,9 @@ public abstract class AbstractNotifier implements Notifier {
             return;
         }
     }
+
+    @Override
+    public int getPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

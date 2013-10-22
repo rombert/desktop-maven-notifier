@@ -3,7 +3,7 @@
 
 Simple build extension for Maven 3.0.2 or newer which notifies the user when a build is complete.
 
-Currently supported on Linux and Mac OS X 10.8 or higher.
+Currently supported on Linux, Mac OS X and Windows (through various notification senders) and on all systems running Java 6.
 
 ## How To ##
 
@@ -14,8 +14,8 @@ To build the desktop notifier, download a copy of the sources, and then from wit
 To install the desktop notifier, simply copy `target/desktop-maven-notifier-*.jar` to the `lib/ext` directory of your Maven installation.
 
 ### Linux ###
-On Linux Maven Desktop Notifier uses `notify-send` and, where available, `kdialog`. Tests were performed on  Gnome 3, KDE 4, Unity 
-but other compliant implementations, for instance those provided by Cinnamon and Xfce should work just fine.
+On Linux Maven Desktop Notifier uses `notify-send` and, where available, `kdialog`. Tests were performed on  Gnome 3, KDE 4 and Unity
+but other compliant implementations, for instance those provided by Cinnamon and Xfce, should work just fine.
 
 ### Mac OS X ###
 On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Installation instructions for `terminal-notifier` can be found
@@ -23,6 +23,10 @@ On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Ins
 
 ### Windows ###
 There is preliminary support for Windows 7 and 8 using [Snarl](http://sourceforge.net/projects/snarlwin/).
+
+### Java System Tray ###
+If none of the notification senders described above are available on your machine, or if simply you're running a different operating system,
+Maven Desktop Notifier will fallback to using the Java System Tray mechanism for displaying pop-ups. This requires Java 6 or newer.
 
 ## Screenshots
 
@@ -49,3 +53,7 @@ There is preliminary support for Windows 7 and 8 using [Snarl](http://sourceforg
 ### Windows
 ![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-windows.png)
 ![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-windows-failure.png)
+
+### Java System Tray
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-java.png)
+![](https://raw.github.com/wiki/rombert/desktop-maven-notifier/images/maven-desktop-notifier-java-failure.png)
