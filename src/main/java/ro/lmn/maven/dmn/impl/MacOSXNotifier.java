@@ -15,7 +15,6 @@
  */
 package ro.lmn.maven.dmn.impl;
 
-import java.io.File;
 import java.io.IOException;
 
 import ro.lmn.maven.dmn.api.NotificationType;
@@ -25,11 +24,11 @@ import ro.lmn.maven.dmn.api.NotificationType;
  */
 public class MacOSXNotifier extends AbstractNotifier {
 
-    private static final File terminalNotifier = new File("/usr/local/bin/terminal-notifier");
+    public static final String TERMINAL_NOTIFIER = "terminal-notifier";
 
     @Override
     public void notify(String title, String details, NotificationType notificationType) throws IOException {
-        ProcessBuilder builder = new ProcessBuilder(terminalNotifier.getAbsolutePath(), "-title", title, "-message", details);
+        ProcessBuilder builder = new ProcessBuilder(locator.getPath(TERMINAL_NOTIFIER), "-title", title, "-message", details);
         executeProcess(builder);
     }
 
@@ -38,6 +37,6 @@ public class MacOSXNotifier extends AbstractNotifier {
         if (OSType.MAC != OSType.getConstantForValue(getOSName())) {
             return false;
         }
-        return terminalNotifier.exists() && terminalNotifier.canExecute();
+        return locator.isAvailable(TERMINAL_NOTIFIER);
     }
 }
