@@ -21,14 +21,11 @@ import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
-import java.awt.TrayIcon.MessageType;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 import ro.lmn.maven.dmn.api.NotificationType;
 
