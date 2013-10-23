@@ -48,7 +48,7 @@ public class WindowsNotifier extends AbstractNotifier {
 
     @Override
     public boolean isAvailable() {
-        OSType osType = OSType.getConstantForValue(AbstractNotifier.getOSName());
+        OSType osType = OSType.getDetected();
         if (OSType.WINDOWS_7 != osType && OSType.WINDOWS_8 != osType) {
             return false;
         }

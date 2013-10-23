@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Radu Cotescu
+ * Copyright 2013 Radu Cotescu, Robert Munteanu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,4 +39,14 @@ public enum OSType {
         }
         return null;
     }
+
+    public static OSType getDetected() {
+        return OSType.getConstantForValue(System.getProperty("os.name"));
+    }
+
+    public boolean isWindows() {
+
+        return this == WINDOWS_7 || this == WINDOWS_8;
+    }
+
 }

@@ -50,7 +50,7 @@ public class LinuxNotifier extends AbstractNotifier {
 
     @Override
     public boolean isAvailable() {
-        if (OSType.LINUX != OSType.getConstantForValue(getOSName())) {
+        if (OSType.LINUX != OSType.getDetected()) {
             return false;
         }
         return notifier.exists() && notifier.canExecute();

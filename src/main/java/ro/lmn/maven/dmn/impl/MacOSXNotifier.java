@@ -34,7 +34,7 @@ public class MacOSXNotifier extends AbstractNotifier {
 
     @Override
     public boolean isAvailable() {
-        if (OSType.MAC != OSType.getConstantForValue(getOSName())) {
+        if (OSType.MAC != OSType.getDetected()) {
             return false;
         }
         return locator.isAvailable(TERMINAL_NOTIFIER);

@@ -24,11 +24,7 @@ import ro.lmn.maven.dmn.api.Notifier;
  */
 public abstract class AbstractNotifier implements Notifier {
 
-    protected ExecutableLocator locator = new ExecutableLocator();
-
-    protected static String getOSName() {
-        return System.getProperty("os.name");
-    }
+    protected ExecutableLocator locator = new ExecutableLocator(OSType.getDetected());
 
     protected void executeProcess(ProcessBuilder processBuilder) throws IOException {
         Process process = processBuilder.start();

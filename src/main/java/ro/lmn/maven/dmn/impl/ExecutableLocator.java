@@ -30,24 +30,25 @@ public class ExecutableLocator {
     /** Use this to reference the OS PATH environment variable in the search path */
     public static final String PATH_ENV = "PATH";
 
-    private static final boolean IS_WINDOWS = isWindows();
-
     private List<String> searchPath;
     private File last;
+
+    private final OSType osType;
 
     /**
      * Searches on the paths in the OS PATH environment variable.
      */
-    public ExecutableLocator() {
-        setSearchPath(new String[] { PATH_ENV });
+    public ExecutableLocator(OSType osType) {
+        this(osType, new String[] { PATH_ENV });
     }
 
     /**
      * Searches on the custom defined path list. Use {@link #PATH_ENV} to refer to
      * the OS PATH environment variable in the list (it will be expanded).
      */
-    public ExecutableLocator(String[] searchPath) {
+    public ExecutableLocator(OSType osType, String[] searchPath) {
         setSearchPath(searchPath);
+        this.osType = osType;
     }
 
     public void setSearchPath(String[] sp) {
@@ -59,7 +60,7 @@ public class ExecutableLocator {
                 searchPath.add(path);
             }
         }
-        //System.out.printf("Search path: %s", StringUtils.join(searchPath.toArray(), ", "));
+        // System.out.printf("Search path: %s", StringUtils.join(searchPath.toArray(), ", "));
     }
 
     /** Clears the search path. Use to {@link #add(String) add paths} step by step. */
@@ -81,7 +82,7 @@ public class ExecutableLocator {
      * Returns the full absolute path for the given executable command or null
      */
     public String getPath(String cmd) {
-        if (IS_WINDOWS && cmd != null && !cmd.endsWith(".exe")) {
+        if (osType.isWindows() && cmd != null && !cmd.endsWith(".exe")) {
             cmd = cmd + ".exe";
         }
         // quick check for last used executable
@@ -118,9 +119,5 @@ public class ExecutableLocator {
         }
 
         return StringUtils.split(path, File.pathSeparatorChar + "");
-    }
-
-    private static boolean isWindows() {
-        return System.getProperty("os.name").startsWith("Windows");
     }
 }
