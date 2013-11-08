@@ -7,11 +7,14 @@ Currently supported on Linux, Mac OS X and Windows (through various notification
 
 ## How To ##
 
-To build the desktop notifier, download a copy of the sources, and then from within the directory:
+Pre-built versions of the notifier are available in the [releases area](https://github.com/rombert/desktop-maven-notifier/releases) . 
+Download the latest jar and place it  to the `lib/ext` directory of your Maven installation.
+
+If you prefer to built the notifier yourself, download a copy of the sources, and then from within the directory:
 
     mvn package
 
-To install the desktop notifier, simply copy `target/desktop-maven-notifier-*.jar` to the `lib/ext` directory of your Maven installation.
+The resulting jar will be located in `target/desktop-maven-notifier-*.jar`. 
 
 ### Linux ###
 On Linux Maven Desktop Notifier uses `notify-send` and, where available, `kdialog`. Tests were performed on  Gnome 3, KDE 4 and Unity
