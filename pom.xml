@@ -143,4 +143,10 @@
     </properties>
     <name>Desktop Notifier for Maven</name>
     <description>Uses desktop notifications to notify the user when a build succeeds.</description>
+    <scm>
+        <connection>scm:git:https://github.com/rombert/desktop-maven-notifier.git</connection>
+        <developerConnection>scm:git:https://github.com/rombert/desktop-maven-notifier.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>scm:git:https://github.com/rombert/desktop-maven-notifier/tree/master</url>
+    </scm>
 </project>
