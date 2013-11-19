@@ -28,7 +28,8 @@ public class MacOSXNotifier extends AbstractNotifier {
 
     @Override
     public void notify(String title, String details, NotificationType notificationType) throws IOException {
-        ProcessBuilder builder = new ProcessBuilder(locator.getPath(TERMINAL_NOTIFIER), "-title", title, "-message", details);
+        ProcessBuilder builder = new ProcessBuilder(locator.getPath(TERMINAL_NOTIFIER), "-title", title, "-message", details, "-sender",
+                "com.apple.Terminal");
         executeProcess(builder);
     }
 
