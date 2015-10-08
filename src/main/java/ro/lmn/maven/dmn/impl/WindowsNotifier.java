@@ -49,7 +49,7 @@ public class WindowsNotifier extends AbstractNotifier {
     @Override
     public boolean isAvailable() {
         OSType osType = OSType.getDetected();
-        if (OSType.WINDOWS_7 != osType && OSType.WINDOWS_8 != osType) {
+        if (OSType.WINDOWS_7 != osType && OSType.WINDOWS_8 != osType && OSType.WINDOWS_10 != osType) {
             return false;
         }
         return heysnarl.exists() && heysnarl.canExecute();

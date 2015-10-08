@@ -23,7 +23,8 @@ public enum OSType {
     LINUX("Linux"),
     MAC("Mac OS X"),
     WINDOWS_7("Windows 7"),
-    WINDOWS_8("Windows 8");
+    WINDOWS_8("Windows 8"),
+    WINDOWS_10("Windows 10");
 
     private String os;
 
@@ -46,7 +47,7 @@ public enum OSType {
 
     public boolean isWindows() {
 
-        return this == WINDOWS_7 || this == WINDOWS_8;
+        return this == WINDOWS_7 || this == WINDOWS_8 || this == WINDOWS_10;
     }
 
 }
