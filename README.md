@@ -21,7 +21,10 @@ On Linux Maven Desktop Notifier uses `notify-send` and, where available, `kdialo
 but other compliant implementations, for instance those provided by Cinnamon and Xfce, should work just fine.
 
 ### Mac OS X ###
-On Mac OS X 10.8 or higher, Maven Desktop Notifier uses `terminal-notifier`. Installation instructions for `terminal-notifier` can be found
+Maven Desktop Notifier uses the Notification Center.
+
+On Mac OS X 10.9 or higher, Maven Desktop Notifier uses `osascript` unless `terminal-notifier` has been installed.
+On Mac OS X 10.8, Maven Desktop Notifier uses `terminal-notifier`. Installation instructions for `terminal-notifier` can be found
 [here](https://github.com/alloy/terminal-notifier/).
 
 ### Windows ###

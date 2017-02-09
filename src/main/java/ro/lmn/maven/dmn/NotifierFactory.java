@@ -23,6 +23,7 @@ import java.util.List;
 import ro.lmn.maven.dmn.api.Notifier;
 import ro.lmn.maven.dmn.impl.LinuxNotifier;
 import ro.lmn.maven.dmn.impl.MacOSXNotifier;
+import ro.lmn.maven.dmn.impl.MacOSXOsaNotifier;
 import ro.lmn.maven.dmn.impl.SystemTrayNotifier;
 import ro.lmn.maven.dmn.impl.WindowsNotifier;
 
@@ -32,6 +33,7 @@ public class NotifierFactory {
     {
         notifiers.add(new LinuxNotifier());
         notifiers.add(new MacOSXNotifier());
+        notifiers.add(new MacOSXOsaNotifier());
         notifiers.add(new WindowsNotifier());
         notifiers.add(new SystemTrayNotifier());
         
