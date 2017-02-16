@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Radu Cotescu
+ * Copyright 2017 Denis N. Antonioli
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
